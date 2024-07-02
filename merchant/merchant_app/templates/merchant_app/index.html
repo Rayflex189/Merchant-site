@@ -1,0 +1,384 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '70f7cecfaa2471ad97ab419ff7c7aaa164294c8d';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-Cvrc6qan3eYb1A5QkqLGuCmTPSQW0Fh9b1xnbY0KwOcD7SJ3FszlLo6T+h2Ey5PztrHuvhsvlW2hR1U6nV9rAQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!--Translation icon-->
+    <div class="translate-icon-container">
+        <div id="translate-icon" class="translate-icon"><div id="google_translate_element"></div> </div>
+    </div>
+    <nav>
+        <div class="logo">
+            <img src="{% static 'images/Merchantlogo.png' %}" alt="logo" >
+        </div>
+        <ul class="links">
+            <li><a href="">Login</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+</head>
+<body>
+    <div class="firsts">
+        <h1>Limitless banking for everyone</h1>
+        <p>
+            Create your own unique bank account number in minutes. No bank visits, no hassle
+        </p>
+        <p>
+            licensed by the mtk ventures
+        </p>
+
+        <div class="button1">
+            <a style="text-decoration: none;" href="{% url 'register' %}"><button class="btn1">GET STARTED</button></a>
+            <button class="btn2">LEARN MORE</button>
+        </div>
+    </div>
+
+    <div class="things">
+        <div class="thing1">
+            <h2>Zero Account Maintenance Fees</h2>
+            <p>
+                We charge abosolutely no maintenance fees on all account
+            </p>
+        </div>
+        <br>
+        <div class="thing2">
+            <h2>Free Interbank Transfer</h2>
+            <p>
+                Enjoy 5 Inter Bank transfer daily from our online Bank
+            </p>
+        </div>
+        <br>
+        <div class="thing3">
+            <h2>Free Debit Cards</h2>
+            <p>
+                Get a Free debit card delivered to you at no cost
+            </p>
+        </div>
+        <br>
+        <div class="thing4">
+            <h2>Merchant Service Form</h2>
+            <p>
+               You can fill out the Merchant form to be one of our Merchants
+            </p>
+        </div>
+    </div>
+
+ <div class="things2">
+        <div class="thin4">
+            <h1 id="about">Personal Banking</h1>
+            <br>
+            <p>
+                No dreams unfufilled and no talent untapped
+            </p>
+            <button>Learn more</button>
+            <img src="{% static 'images/IMG_1390.PNG.png' %}" alt="">
+        </div>
+
+        <div class="thin4">
+            <h1>Lucrative earning</h1>
+            <br>
+            <p>
+               Earn a lucrative second income as a Merchant Bank agent. Break financial limits with our agency banking offer.
+            </p>
+            <button>Learn more</button>
+            <img src="{% static 'images/IMG_1391.png' %}" alt="">
+        </div>
+    </div>
+
+    <div class="things1">
+
+        <div class="thin4">
+            <h1>Bussiness Banking</h1>
+            <br>
+            <p>
+               Focus on building your dreams while we help you manage you financies.With Merchant bank, your business opportunities are limitless.
+            </p>
+            <button>Learn more</button>
+            <img src="{% static 'images/IMG_1387.JPG' %}" alt="">
+        </div>
+
+        <div class="thin4">
+            <h1>Fix-deposit account</h1>
+            <br>
+            <p>
+                Be Prepared for anything with our customised savings plans.
+            </p>
+            <button>Learn more</button>
+            <img src="{% static 'images/IMG_1388.JPG' %}" alt="">
+        </div>
+
+        <div class="thin4">
+            <h1>Loan Product Bouquet</h1>
+            <br>
+            <p>
+                Discover our Suite of loans products (for both salary earners and SMEs) taliored to assist in meeting your every personal and business needs.
+            </p>
+            <button>Get started</button>
+            <img src="{% static 'images/IMG_1389.JPG' %}" alt="">
+        </div>
+    </div>
+    
+    <h2 class="header1">Premier Online Bank is Avaliable in the following Countries</h2>
+    
+    <section>
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1418.png' %}"  alt="">
+            <span>America</span>
+        </div>
+        
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1419.png' %}"  alt="">
+            <span>South Africa</span>
+        </div>
+        
+              
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1420.png' %}"  alt="">
+            <span>Canada</span>
+        </div>
+        
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1421.png' %}"  alt="">
+            <span>England</span>
+        </div>
+        
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1422.png' %}"  alt="">
+            <span>South Korea</span>
+        </div>
+        
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1423.png' %}"  alt="">
+            <span>Brazil</span>
+        </div>
+        
+             
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1424.png' %}"  alt="">
+            <span>India</span>
+        </div>
+        
+        <div class="flag1">
+            <img src="{% static 'images/IMG_1426.png' %}"  alt="">
+            <span>China</span>
+        </div>
+        <h2 class="header">The Most Trusted Currency Exchange is here for Giving Services</h2>
+        <hr>
+    </section>
+        <div class="benefits">
+            <img src="{% static 'images/IMG_1427.PNG' %}"  alt="">
+            <span>Global Coverage</span>
+        </div>
+        
+        <div class="benefits">
+            <img src="{% static 'images/IMG_1427.PNG' %}"  alt="">
+            <span>Easy transfer Method</span>
+        </div>
+        
+        <div class="benefits">
+            <img src="{% static 'images/IMG_1427.PNG' %}"  alt="">
+            <span>Global 24/7 support</span>
+        </div>
+        
+        <div class="benefits">
+            <img src="{% static 'images/IMG_1427.PNG' %}"  alt="">
+            <span>Lowest Fee</span>
+        </div>
+        
+        <div class="benefits">
+            <img src="{% static 'images/IMG_1427.PNG' %}"  alt="">
+            <span>Instant Processing</span>
+        </div>
+        
+        <div class="benefits">
+            <img src="{% static 'images/IMG_1427.PNG' %}"  alt="">
+            <span>Bank level Security</span>
+        </div>
+    <section>
+        <h3 class="views">What Customers Say about Us</span>
+        </h3>
+        <div class="sect">
+        <div class="feeds">
+            <img src="{% static 'images/avatar9.jpeg' %}" alt="">
+            <p>For more than two decades I've been banking with Merchant First Bank. To me the customer service is top notch you know - <b>Mark Smith</b></p>
+        </div>
+
+        <div class="feeds">
+            <img src="{% static 'images/avatar9.jpeg' %}" alt="">
+            <p>One thing very outstanding about Merchant First Bank is the loan programm. For once I paid back a loan without being under pressure - <b>John Doe</b></p>
+        </div>
+    </div>
+    </section>
+    <div class="custhead">
+        <h2>We Always Try To Understand Customers Expectation</h2>
+    <br>
+        <p>Start Banking and making profit in our platform requires no
+            professional skills. In just three easy steps you are a millionaire.</p>
+    </div>
+
+    <div class="cust">
+        <div class="cus">
+            <h1 class="gridstuff">18K</h1>
+            <h1 class="gridstuff">20K</h1>
+        </div>
+        <div class="cus2">
+            <h1 class="gridstuff">5000+</h1>
+            <h1 class="gridstuff">70+</h1>
+        </div>
+    </div>
+    <section>
+
+    </section>
+    </div>
+    <footer>
+        <div class="foot">
+            <div class="foot1">
+                <h1>Personal Banking</h1>
+                <hr>
+                <p>
+                    Saving
+                </p>
+                <p>
+                    Current
+                </p>
+                <p>
+                    Fixed deposit
+                </p>
+                <p>
+                    Cards
+                </p>
+                <p>
+                    Loans
+                </p>
+                <p>
+                    Financing
+                </p>
+            </div>
+
+            <div class="foot2">
+                <h1>Bussiness Banking</h1>
+                <hr>
+                <p>
+                    SMEs
+                </p>
+                <p>
+                    Services
+                </p>
+                <p>
+                    Payments
+                </p>
+                <p>
+                    Corporates
+                </p>
+            </div>
+
+            <div class="foot3">
+                <h1>About</h1>
+                <hr>
+                <p>
+                    Who are we
+                </p>
+                <p>
+                    Board of directors
+                </p>
+                <p>
+                    Privacy policy
+                </p>
+                <p>
+                    Terms and conditions
+                </p>
+                <p>
+                    Cookies policy
+                </p>
+                <p>
+                    Executive managers
+                </p>
+            </div>
+
+            <hr>
+            <div class="social-icons" id="socialIcons">
+                <!-- Icons will be dynamically added here -->
+            </div>
+        </div>
+    </footer>
+   <script>
+    // Define an array of social media platforms and their corresponding Font Awesome classes
+const socialMediaPlatforms = [
+    { name: 'Facebook', iconClass: 'fab fa-facebook-f', text: 'Follow us on Facebook' },
+    { name: 'Twitter', iconClass: 'fab fa-twitter', text: 'Follow us on Twitter' },
+    { name: 'Instagram', iconClass: 'fab fa-instagram', text: 'Follow us on Instagram' },
+    { name: 'LinkedIn', iconClass: 'fab fa-linkedin-in', text: 'Follow us on LinkedIn' },
+    { name: 'YouTube', iconClass: 'fab fa-youtube', text: 'Subscribe on YouTube' },
+    { name: 'Pinterest', iconClass: 'fab fa-pinterest', text: 'Follow us on Pinterest' }
+];
+
+const socialIconsContainer = document.getElementById('socialIcons');
+
+// Dynamically create HTML for each social media icon
+socialMediaPlatforms.forEach(platform => {
+    const iconHTML = `
+        <div class="icon">
+            <i class="${platform.iconClass}"></i>
+            <span>${platform.text}</span>
+        </div>
+    `;
+    socialIconsContainer.innerHTML += iconHTML;
+});
+
+// Optional: Add animation effects or interactivity with JavaScript
+// Example: Hover animation
+const icons = document.querySelectorAll('.icon');
+
+icons.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+        icon.classList.add('animate');
+    });
+
+    icon.addEventListener('mouseleave', () => {
+        icon.classList.remove('animate');
+    });
+});
+
+function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        } 
+        // Get the translate icon element
+const translateIcon = document.getElementById('translate-icon');
+
+// Add bounce animation
+translateIcon.addEventListener('mouseover', () => {
+    translateIcon.style.animation = 'bounce 0.5s infinite alternate';
+});
+
+// Reset animation when mouse leaves
+translateIcon.addEventListener('mouseleave', () => {
+    translateIcon.style.animation = '';
+});
+
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

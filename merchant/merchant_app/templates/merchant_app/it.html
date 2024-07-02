@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '70f7cecfaa2471ad97ab419ff7c7aaa164294c8d';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="all">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: navy;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            animation: slideDown 0.5s ease-in-out forwards;
+        }
+
+        .dropdown-content a,
+        .dropdown-content .close-navbar {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content .close-navbar:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .close-navbar {
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+        }
+
+@keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0.5;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Premier Bank Header */
+        .premier-bank-header {
+            background-color: #fff;
+            color: #003366;
+            text-align: left;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .premier-bank-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            padding-left: 1rem;
+            font-weight: bold;
+        }
+
+        .item2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-flow: column;
+            line-height: 2rem;
+        }
+
+        .item1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-flow: column;
+            line-height: 2rem;
+        }
+
+        .box1 {
+            padding: 10px;
+            border-radius: 3%;
+            font-family: Sans-Serif;
+            background: linear-gradient(to right, #003366, #2994ff);
+            color: #fff;
+            margin: 1rem;
+            box-shadow: 5px 5px 5px #000;
+            position: relative;
+            /* To position the overlapping divs */
+        }
+
+        .withdraw {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .part2 {
+            padding: 1rem;
+            background: linear-gradient(to right, #003366, #2994ff);
+            border-radius: 0.5rem;
+            font-size: 2rem;
+            color: #dbdbda;
+        }
+
+        /* Styles for deposit and transfer divs */
+        .deposit, .transfer {
+            position: absolute;
+            bottom: -40px;/* Adjust this value as needed */
+            width: 86%;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .deposit {
+            left: 10px;
+            /* Adjust position if necessary */
+            background-color: #1557ea;
+        }
+
+        .transfer {
+            right: 10px;
+            /* Adjust position if necessary */
+            background-color: #1557ea;
+        }
+
+        .deposit .fa-arrow-down {
+            margin-left: 10px;
+            /* Space between text and icon */
+        }
+
+        .transfer .fa-arrow-up {
+            margin-left: 10px;
+            /* Space between text and icon */
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            right: -250px;
+            /* Initially hidden off-screen */
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #003366;
+            color: #fff;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-header {
+            padding: 1rem;
+            background-color: #004080;
+            text-align: center;
+            border-bottom: 1px solid #004080;
+        }
+
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .sidebar-header .close-sidebar {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .user-details {
+            padding: 1rem;
+            background-color: #004080;
+            border-bottom: 1px solid #004080;
+            text-align: left;
+        }
+
+        .user-details p {
+            margin: 0.5rem 0;
+        }
+
+        .user-details button {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .user-details button:hover {
+            background-color: #ffbf00;
+        }
+
+        .account-number {
+            animation: fadeIn 1s ease;
+        }
+
+@keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 1rem;
+            border-bottom: 1px solid #004080;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #004080;
+            display: block;
+        }
+
+        .open-sidebar-btn {
+            top: 4%;
+            right: 0;
+            background-color: #004080;
+            color: white;
+            padding: 10px;
+            width: 4rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+
+        .open-sidebar-btn:hover {
+            background-color: #0055cc;
+        }
+
+        .bottom-navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #003366;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+            animation: slideUp 0.5s ease-in-out;
+        }
+
+        .nav-item {
+            color: white;
+            text-align: center;
+        }
+
+        .nav-item a {
+            color: white;text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            background-color: orange;
+            border-radius: 5px;
+        }
+
+@keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .transactions {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid navy;
+            background: rgba(255, 255, 255, 0.8);
+            /* Transparent white background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .center {
+            color: red;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .table {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .itable, .istable {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .itable {
+            font-weight: bold;
+            border-right: 1px solid navy;
+            padding-right: 20px;
+            margin-right: 20px;
+        }
+
+        .itable li, .istable li {
+            margin: 5px 0;
+        }
+
+        .istable {
+            padding-left: 20px;
+        }
+
+        .hd {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+
+        .transaction-container {
+            padding: 20px;
+            border: 2px solid navy;
+            background: rgba(0, 0, 128, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 1rem;
+            align-items: center;
+        }
+
+
+
+
+        .transaction-header {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-weight: bold;
+        }
+
+        .transaction-count {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid navy;
+            background: transparent;
+            color: navy;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            border-radius: 50%;
+        }
+
+        .transaction-icon {
+            width: 50px;
+            height: 50px;
+            margin: 20px auto;
+            animation: bounceIn 2s infinite;
+        }
+
+@keyframes bounceIn {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .no-transaction-message {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .notification-bell {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: navy;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            animation: bellAnimate 3s infinite;
+        }
+
+        /* Animation for the bell */
+@keyframes bellAnimate {
+            0%, 100% {
+                transform: rotate(0);
+            }
+            10%, 30%, 50%, 70%, 90% {transform: rotate(-10deg);
+            }
+            20%, 40%, 60%, 80% {
+                transform: rotate(10deg);
+            }
+        }
+
+        /* Vibration animation */
+@keyframes vibrate {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(-2px, -2px);
+            }
+            50% {
+                transform: translate(2px, 2px);
+            }
+            75% {
+                transform: translate(-2px, 2px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .ht {
+            display: flex;
+            flex-direction: column;
+        }
+ .messages, li{
+      color: green;
+ }
+ .hr{
+    height: 3rem;
+    font-weight: bolder;
+ }
+ .translate-icon-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.translate-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('path_to_google_translate_icon.png');
+    background-size: cover;
+    cursor: pointer;
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Premier Bank Header -->
+    <header class="premier-bank-header">
+        <h1>Loan</h1>
+        <a href="{% url 'transaction' %}">
+        <div class="notification-bell" onclick="vibrateBell()">
+          <i class="fas fa-bell"></i>
+        </div>
+    </a> 
+        <button id="openSidebarBtn" class="open-sidebar-btn" onclick="toggleSidebar()">&#9776</button>
+    </header>
+
+    <div class="box1">
+        <section>
+            <div class="part1">
+                <div class="Welcome">
+                    <h3>Balance </h3>
+                    <p>
+                        {{user_profile.currency}} {{user_profile.balance}}
+                    </p>
+                </div>
+            </div>
+<hr class="hr">
+            <div class="part1">
+                <h3>Book Balance </h3>
+                <p>
+                    {{user_profile.currency}} {{user_profile.balance}}
+                </p>
+            </div>
+        </section>
+
+        <!-- Add deposit and transfer divs -->
+        <a href="{% url 'loan' %}" class="deposit">Request A Loan <i class="fas fa-arrow-down"></i></a>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Sidebar Menu</h2>
+            <button class="close-sidebar" onclick="toggleSidebar()">Close</button>
+        </div>
+
+        <!-- User details -->
+        <div class="user-details">
+            <p class="account-number"></p>
+            <button id="generateAccountBtn" onclick="generateAndSaveAccountNumber()">Generate New Account Number</button>
+            <p class="user-name">
+                Username: <span>{{request.user}}</span>
+            </p>
+            <p class="user-email">
+                Email: <span>{{request.user.email}}</span>
+            </p>
+        </div>
+
+        <ul>
+            <li><a href="{% url 'setting' %}">Profile</a></li>
+            <li><a href="{% url 'setting' %}">Settings</a></li>
+            <li class="">
+                <div class="top-navbar">
+                    <div class="dropdown">
+                        <button class="dropbtn">Integrated services</button>
+                        <div class="dropdown-content">
+                            <a href="#">Rates</a>
+                            <a href="#">Loans</a>
+                            <a href="#">Savings</a>
+                            <a href="#">Investments</a>
+                            <button class="close-navbar">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="{% url 'transaction' %}">Notifications</a></li>
+            <li><a href="{% url 'analytics' %}">Analytics</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </div>
+    <br /><br /><br />
+
+    <div class="transaction-container">
+        <span class="transaction-header">Recent Transaction</span>
+        <div class="transaction-count">
+            0
+        </div>
+        <img class="transaction-icon" src="https://via.placeholder.com/50?text=Icon" alt="Transaction Icon">
+        <div class="no-transaction-message">
+            No transaction yet
+        </div>
+    </div>
+    <br /><br /><br />
+    <!--Translation icon-->
+    <div class="translate-icon-container">
+        <div id="translate-icon" class="translate-icon"><div id="google_translate_element"></div> </div>
+    </div>
+    <div class="bottom-navbar">
+        <div class="nav-item" id="home">
+            <a class="a" href="{% url 'dash' %}"><i class="fas fa-home"></i><span>Home</span></a>
+        </div>
+        <div class="nav-item" id="analytics">
+            <a class="a" href="{% url 'analytics' %}"><i class="fas fa-chart-line"></i><span>Analytics</span></a>
+        </div>
+        <div class="nav-item" id="transactions">
+            <a class="a" href="{% url 'transaction' %}"><i class="fas fa-exchange-alt"></i><span>Transactions</span></a>
+        </div>
+        <div class="nav-item" id="settings">
+            <a class="a" href="{% url 'setting' %}"><i class="fas fa-cog"></i><span>Settings</span></a>
+        </div>
+    </div>
+    <script>
+                function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const openBtn = document.getElementById('openSidebarBtn');
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                openBtn.style.display = 'block'; // Show the open button
+            } else {
+                sidebar.classList.add('open');
+                openBtn.style.display = 'none'; // Hide the open button
+            }
+        }
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        } 
+        // Get the translate icon element
+const translateIcon = document.getElementById('translate-icon');
+
+// Add bounce animation
+translateIcon.addEventListener('mouseover', () => {
+    translateIcon.style.animation = 'bounce 0.5s infinite alternate';
+});
+
+// Reset animation when mouse leaves
+translateIcon.addEventListener('mouseleave', () => {
+    translateIcon.style.animation = '';
+});
+
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

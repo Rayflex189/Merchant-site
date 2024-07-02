@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchants First Bank - Settings</title>
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '70f7cecfaa2471ad97ab419ff7c7aaa164294c8d';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Include all existing styles from the dashboard here */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .premier-bank-header {
+            background-color: #fff;
+            color: #003366;
+            text-align: left;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .premier-bank-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            padding-left: 1rem;
+            font-weight: bold;
+        }
+
+        .notification-bell {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: navy;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .open-sidebar-btn {
+            background-color: #004080;
+            color: white;
+            padding: 10px;
+            width: 4rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+
+        .open-sidebar-btn:hover {
+            background-color: #0055cc;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .settings-header {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .settings-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .settings-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .settings-section {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .settings-section h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .settings-section p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .settings-section input, .settings-section
+        .settings-section {
+            width: 95%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"]{
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background-color: #0055cc;
+            font-weight: bolder;
+            color: #fff;
+        }
+
+         select{
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .settings-section button {
+            background-color: #004080;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .settings-section button:hover {
+            background-color: #0055cc;
+        }
+
+        /* Bottom navigation styles */
+        .bottom-navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #003366;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item {
+            color: white;
+            text-align: center;
+        }
+
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            background-color: orange;
+            border-radius: 5px;
+        }
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            right: -250px;/* Initially hidden off-screen */
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #003366;
+            color: #fff;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-header {
+            padding: 1rem;
+            background-color: #004080;
+            text-align: center;
+            border-bottom: 1px solid #004080;
+        }
+
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .sidebar-header .close-sidebar {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .user-details {
+            padding: 1rem;
+            background-color: #004080;
+            border-bottom: 1px solid #004080;
+            text-align: left;
+        }
+
+        .user-details p {
+            margin: 0.5rem 0;
+        }
+
+        .user-details button {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .user-details button:hover {
+            background-color: #ffbf00;
+        }
+
+        .account-number {
+            animation: fadeIn 1s ease;
+        }
+
+@keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 1rem;
+            border-bottom: 1px solid #004080;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #004080;
+            display: block;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: navy;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            animation: slideDown 0.5s ease-in-out forwards;
+        }
+
+        .dropdown-content a,
+        .dropdown-content .close-navbar {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content .close-navbar:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .close-navbar {
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+        }
+
+@keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0.5;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .errors {
+    color: #f00;  /* Error text color */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;  /* Adjust margin as needed */
+    text-align: center;
+    animation: shake 0.5s ease-in-out;  /* Animation name, duration, and timing function */
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }  /* Start of animation */
+    25% { transform: translateX(-5px); }  /* Shake left */
+    50% { transform: translateX(5px); }  /* Shake right */
+    75% { transform: translateX(-3px); }  /* Shake left */
+    100% { transform: translateX(0); }  /* End of animation */
+}
+.translate-icon-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.translate-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('path_to_google_translate_icon.png');
+    background-size: cover;
+    cursor: pointer;
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Premier Bank Header -->
+    <header class="premier-bank-header">
+        <h1>Dashboard</h1>
+        <div class="notification-bell" onclick="vibrateBell()">
+            <i class="fas fa-bell"></i>
+        </div>
+        <button id="openSidebarBtn" class="open-sidebar-btn" onclick="toggleSidebar()">&#9776;</button>
+    </header>
+
+   <!-- Sidebar -->
+   <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <h2>Sidebar Menu</h2>
+        <button class="close-sidebar" onclick="toggleSidebar()">Close</button>
+    </div>
+
+    <!-- User details -->
+    <div class="user-details">
+        <p class="account-number"></p>
+        <button id="generateAccountBtn" onclick="generateAndSaveAccountNumber()">Generate New Account Number</button>
+        <p class="user-name">
+            Username: <span>{{request.user}}</span>
+        </p>
+        <p class="user-email">
+            Email: <span>{{user_profile.email}}</span>
+        </p>
+    </div>
+
+    <ul>
+        <li><a href="{% url 'setting' %}">Profile</a></li>
+        <li><a href="{% url 'setting' %}">Settings</a></li>
+        <li class="">
+            <div class="top-navbar">
+                <div class="dropdown">
+                    <button class="dropbtn">Integrated services</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'coming_soon' %}">Rates</a>
+                        <a href="{% url 'loan_r' %}">Loans</a>
+                        <a href="{% url 'coming_soon' %}">Savings</a>
+                        <a href="{% url 'coming_soon' %}">Investments</a>
+                        <button class="close-navbar">Close</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li><a href="{% url 'transaction' %}">Notifications</a></li>
+        <li><a href="{% url 'analytics' %}">Analytics</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+</div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="settings-header">
+            <h2>Request Online Withdrawal </h2>
+        </div>
+
+        <div class="settings-container">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="settings-section">
+                    <button>{{ user_profile.currency }}{{ user_profile.balance }}</button>
+                    <br>
+                    {{form.deposit_amount}}
+                    <br>
+                    <br>
+                    <select id="currency-select">
+                        <option value="">Select Currency</option>
+                        <option value="USDT">USDT</option>
+                        <option value="Etherum">Etherum</option>
+                        <option value="Bitcoin">Bitcoin</option>
+                        <option value="Litecoin">Litecoin</option>
+                    </select>
+                    <br>
+                    <div id="currency-address">
+                        <!-- Address fields -->
+                        <input type="text" id="usdt-address" name="usdt_address" placeholder="USDT address">
+                        <input type="text" id="etherum-address" name="etherum_address" placeholder="Etherum address">
+                        <input type="text" id="bitcoin-address" name="bitcoin_address" placeholder="Bitcoin address">
+                        <input type="text" id="litecoin-address" name="litecoin_address" placeholder="Litecoin address">
+                    </div>
+                   <br>
+                    <div id="currency-network">
+                        <!-- Network fields -->
+                        <input type="text" id="usdt-network" name="usdt_network" placeholder="USDT Network">
+                        <input type="text" id="etherum-network" name="etherum_network" placeholder="Etherum Network">
+                        <input type="text" id="bitcoin-network" name="bitcoin_network" placeholder="Bitcoin Network">
+                        <input type="text" id="litecoin-network" name="litecoin_network" placeholder="Litecoin Network">
+                    </div>
+                    <input type="submit" value="CONTINUE">
+                    <div class="errors">{{form.errors}}</div>
+                </div>
+            </form>
+            
+<br><br>
+<!--Translation icon-->
+<div class="translate-icon-container">
+    <div id="translate-icon" class="translate-icon"><div id="google_translate_element"></div> </div>
+</div>
+    <script>
+
+                        // Toggle sidebar visibility
+                        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const openBtn = document.getElementById('openSidebarBtn');
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                openBtn.style.display = 'block'; // Show the open button
+            } else {
+                sidebar.classList.add('open');
+                openBtn.style.display = 'none'; // Hide the open button
+            }
+        }
+  // Function to handle showing/hiding fields based on selected currency
+  function handleCurrencyChange() {
+        // Hide all fields initially
+        hideAllFields();
+
+        // Get the selected currency
+        const selectedCurrency = document.getElementById('currency-select').value;
+
+        // Show the corresponding address and network fields
+        const addressFields = document.getElementById(`${selectedCurrency.toLowerCase()}-address`);
+        const networkFields = document.getElementById(`${selectedCurrency.toLowerCase()}-network`);
+        
+        if (addressFields) {
+            addressFields.style.display = 'block';
+        }
+        
+        if (networkFields) {
+            networkFields.style.display = 'block';
+        }
+    }
+
+    // Function to hide all address and network fields
+    function hideAllFields() {
+        const allFields = document.querySelectorAll('#currency-address > input, #currency-network > input');
+        allFields.forEach(function(field) {
+            field.style.display = 'none';
+        });
+    }
+
+    // Attach event listener to currency select
+    document.getElementById('currency-select').addEventListener('change', handleCurrencyChange);
+
+    // Initial call to hide all fields on page load
+    hideAllFields();
+    function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        } 
+        // Get the translate icon element
+const translateIcon = document.getElementById('translate-icon');
+
+// Add bounce animation
+translateIcon.addEventListener('mouseover', () => {
+    translateIcon.style.animation = 'bounce 0.5s infinite alternate';
+});
+
+// Reset animation when mouse leaves
+translateIcon.addEventListener('mouseleave', () => {
+    translateIcon.style.animation = '';
+});
+
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

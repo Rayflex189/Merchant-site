@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchants First Bank - Analytics</title>
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '70f7cecfaa2471ad97ab419ff7c7aaa164294c8d';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/css" media="all">
+        /* Include all existing styles from the dashboard here */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .premier-bank-header {
+            background-color: #fff;
+            color: #003366;
+            text-align: left;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .premier-bank-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            padding-left: 1rem;
+            font-weight: bold;
+        }
+
+        .notification-bell {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: navy;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .open-sidebar-btn {
+            background-color: #004080;
+            color: white;
+            padding: 10px;
+            width: 4rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+        }
+
+        .open-sidebar-btn:hover {
+            background-color: #0055cc;
+        }
+
+        /* Main content styles */
+        .main-content {
+            padding: 20px;
+        }
+
+        .analytics-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .analytics-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .analytics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .analytics-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .analytics-card h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .analytics-card p {
+            font-size: 2rem;
+            margin: 0;
+            color: #003366;
+        }
+
+        .chart-container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart {
+            height: 300px;
+        }
+
+        /* Bottom navigation styles */
+        .bottom-navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #003366;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item {
+            color: white;
+            text-align: center;
+        }
+
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            background-color: orange;
+            border-radius: 5px;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            right: -250px;
+            /* Initially hidden off-screen */
+            top: 0;
+            width: 250px;height: 100%;
+            background-color: #003366;
+            color: #fff;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-header {
+            padding: 1rem;
+            background-color: #004080;
+            text-align: center;
+            border-bottom: 1px solid #004080;
+        }
+
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .sidebar-header .close-sidebar {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .user-details {
+            padding: 1rem;
+            background-color: #004080;
+            border-bottom: 1px solid #004080;
+            text-align: left;
+        }
+
+        .user-details p {
+            margin: 0.5rem 0;
+        }
+
+        .user-details button {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .user-details button:hover {
+            background-color: #ffbf00;
+        }
+
+        .account-number {
+            animation: fadeIn 1s ease;
+        }
+
+@keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 1rem;
+            border-bottom: 1px solid #004080;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #004080;
+            display: block;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: navy;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            animation: slideDown 0.5s ease-in-out forwards;
+        }
+
+        .dropdown-content a,
+        .dropdown-content .close-navbar {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content .close-navbar:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .close-navbar {
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+        }
+
+@keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0.5;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .translate-icon-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.translate-icon {
+    width: 40px;
+    height: 40px;
+    background-image: url('path_to_google_translate_icon.png');
+    background-size: cover;
+    cursor: pointer;
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Premier Bank Header -->
+    <header class="premier-bank-header">
+        <h1>Analytics</h1>
+        <a href="{% url 'transaction' %}">
+        <div class="notification-bell" onclick="vibrateBell()">
+               <i class="fas fa-bell"></i>
+        </div>
+    </a>
+        <button id="openSidebarBtn" class="open-sidebar-btn" onclick="toggleSidebar()">&#9776;</button>
+    </header>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="analytics-header"><h2>Key Metrics</h2>
+        </div>
+
+        <div class="analytics-container">
+            <!-- Analytics Card -->
+            <div class="analytics-card">
+                <h3>Total Deposits</h3>
+                <p>
+                    {{user_profile.currency}}0.00
+                </p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Total Withdrawals</h3>
+                <p>
+                    {{user_profile.currency}}0.00
+                </p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Monthly Transactions</h3>
+                <p>
+                    {{user_profile.currency}} {{user_profile.balance}}
+                </p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Average Balance</h3>
+                <p>
+                    {{user_profile.currency}} {{user_profile.balance}}
+                </p>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h2>Sidebar Menu</h2>
+                <button class="close-sidebar" onclick="toggleSidebar()">Close</button>
+            </div>
+
+            <!-- User details -->
+            <div class="user-details">
+                <p class="account-number"></p>
+                <button id="generateAccountBtn" onclick="generateAndSaveAccountNumber()">Generate New Account Number</button>
+                <p class="user-name">
+                    Full Name: <span id="fullName">{{request.user}}</span>
+                </p>
+                <p class="user-email">
+                    Email: <span id="userEmail">{{user_profile.email}}</span>
+                </p>
+            </div>
+
+            <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li class="">
+                    <div class="top-navbar">
+                        <div class="dropdown">
+                            <button class="dropbtn">Integrated services</button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'coming_soon' %}">Rates</a>
+                                <a href="{% url 'loan_r' %}">Loans</a>
+                                <a href="{% url 'coming_soon' %}">Savings</a>
+                                <a href="{% url 'coming_soon' %}">Investments</a>
+                                <button class="close-navbar">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="{% url 'transaction' %}">Notifications</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="chart-container">
+            <h2>Transaction Overview</h2>
+            <div id="chart" class="chart"></div>
+        </div>
+    </div>
+<!--Translation icon-->
+<div class="translate-icon-container">
+    <div id="translate-icon" class="translate-icon"><div id="google_translate_element"></div> </div>
+</div>
+    <!-- Bottom Navigation -->
+    <div class="bottom-navbar">
+        <div class="nav-item" id="home">
+            <a href="{% url 'dash' %}"><i class="fas fa-home"></i><span>Home</span></a>
+        </div>
+        <div class="nav-item" id="analytics">
+            <a href="{% url 'analytics' %}"><i class="fas fa-chart-line"></i><span>Analytics</span></a>
+        </div>
+        <div class="nav-item" id="transactions">
+            <a href="{% url 'transaction' %}"><i class="fas fa-exchange-alt"></i><span>Transactions</span></a>
+        </div>
+        <div class="nav-item" id="settings">
+            <a href="{% url 'setting' %}"><i class="fas fa-cog"></i><span>Settings</span></a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Sidebar toggle functionality
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const openBtn = document.getElementById('openSidebarBtn');
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                openBtn.style.display = 'block'; // Show the open button
+            } else {
+                sidebar.classList.add('open');
+                openBtn.style.display = 'none'; // Hide the open button
+            }
+        }
+
+        // Vibration function for bell icon
+        function vibrateBell() {
+            const bell = document.querySelector('.notification-bell');
+
+bell.classList.add('vibrate');
+bell.addEventListener('animationend', () => {
+    bell.classList.remove('vibrate');
+}, {
+    once: true
+});
+}
+
+// Chart initialization
+document.addEventListener('DOMContentLoaded', () => {
+const chart = document.getElementById('chart');
+const data = [30, 40, 20, 50, 10, 60, 30];
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+
+const ctx = chart.getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Transaction Volume',
+            data: data,
+            backgroundColor: 'rgba(0, 123, 255, 0.5)',
+            borderColor: 'rgba(0, 123, 255, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+});
+function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        } 
+        // Get the translate icon element
+const translateIcon = document.getElementById('translate-icon');
+
+// Add bounce animation
+translateIcon.addEventListener('mouseover', () => {
+    translateIcon.style.animation = 'bounce 0.5s infinite alternate';
+});
+
+// Reset animation when mouse leaves
+translateIcon.addEventListener('mouseleave', () => {
+    translateIcon.style.animation = '';
+});
+
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+</body>
+</html>
